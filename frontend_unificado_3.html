@@ -213,8 +213,9 @@
     const titularesDiv = document.getElementById('titulares');
     const titularesPreguntaDiv = document.getElementById('titularesPregunta');
 
+    const API_BASE = "https://tc-backend-tf9q.onrender.com";
     async function cargarFechas(){
-      const r = await fetch('/fechas');
+      await fetch(`${API_BASE}/fechas`);
       const data = await r.json();
       fechaSelect.innerHTML = `<option value="">Selecciona una fecha…</option>` + data.map(f=>`<option value="${f}">${f}</option>`).join('');
     }
@@ -244,7 +245,7 @@
         titularesDiv.innerHTML = '<div class="loading" style="width:100%;height:20px;" data-label="Cargando titulares…"></div>';
         indicadoresBody.innerHTML = '<tr><td colspan="2"><div class="loading" style="width:100%;height:20px;" data-label="Cargando indicadores…"></div></td></tr>';
 
-      const r = await fetch('/resumen', {
+      const r = await fetch(`${API_BASE}/resumen`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fecha })
@@ -268,7 +269,7 @@
       if (!pregunta) { alert('Escribe tu pregunta'); return; }
         document.getElementById('respuestaTexto').innerHTML = '<div class="loading" style="width:100%;height:40px;" data-label="Procesando respuesta…"></div>';
         titularesPreguntaDiv.innerHTML = '<div class="loading" style="width:100%;height:20px;" data-label="Buscando titulares relevantes…"></div>';
-      const r = await fetch('/pregunta', {
+      const r = await fetch(`${API_BASE}/pregunta`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pregunta })
