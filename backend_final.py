@@ -20,7 +20,7 @@ app = Flask(__name__)
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 @app.route("/")
 def home():
-    return send_file("frontend_unificado_3.html")
+    return send_file("index.html")
 # ------------------------------
 # 📂 Carga única de datos
 # ------------------------------
