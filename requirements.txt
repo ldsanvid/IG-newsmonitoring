@@ -8,4 +8,5 @@ Pillow
 numpy
 openpyxl
 scikit-learn
+dateparser
 gunicorn
