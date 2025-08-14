@@ -7,4 +7,5 @@ wordcloud
 Pillow
 numpy
 openpyxl
+scikit-learn
 gunicorn
