@@ -1,0 +1,9 @@
+Flask
+pandas
+openai
+requests
+matplotlib
+wordcloud
+Pillow
+numpy
+openpyxl
